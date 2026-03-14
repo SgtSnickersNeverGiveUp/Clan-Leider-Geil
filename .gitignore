@@ -12,3 +12,6 @@ build/
 # Editor‑Files
 .vscode/
 .idea/
+
+# Local Netlify folder
+.netlify
