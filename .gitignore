@@ -1,0 +1,14 @@
+# OS‑Files
+.DS_Store
+Thumbs.db
+
+# Node‑Modules (falls später npm benutzt)
+node_modules/
+
+# Build‑Output
+dist/
+build/
+
+# Editor‑Files
+.vscode/
+.idea/
