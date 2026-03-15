@@ -212,12 +212,6 @@
       color: #ff0000;
       border: 2px solid rgba(255, 0, 0, 0.3);
       transition: border-color 0.3s ease;
-      overflow: hidden;
-    }
-    .member-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
     .member-card:hover .member-avatar { border-color: #ff0000; }
     .member-name {
@@ -556,11 +550,11 @@
 
     /* --- Member data --- */
     const members = [
-      { name: 'SgtSnickers', role: 'Clan Leader', initials: 'SS', img: 'static/img/members/sgtsnickers.jpg' },
-      { name: 'NightWolf', role: 'Co-Leader', initials: 'NW', img: 'static/img/members/nightwolf.jpg' },
-      { name: 'PhantomBlade', role: 'Raider', initials: 'PB', img: 'static/img/members/phantomblade.jpg' },
+      { name: 'SgtSnickers', role: 'Clan Leader', initials: 'SS' },
+      { name: 'NightWolf', role: 'Co-Leader', initials: 'NW' },
+      { name: 'PhantomBlade', role: 'Raider', initials: 'PB' },
       { name: 'CyberViper', role: 'Raider', initials: 'CV' },
-      { name: 'ShadowFox', role: 'Streamer', initials: 'SF', img: 'static/img/members/shadowfox.jpg' },
+      { name: 'ShadowFox', role: 'Streamer', initials: 'SF' },
       { name: 'IronStrike', role: 'Raider', initials: 'IS' },
       { name: 'BlitzKrieg', role: 'Raider', initials: 'BK' },
       { name: 'StormRider', role: 'Member', initials: 'SR' },
@@ -572,9 +566,7 @@
     members.forEach(m => {
       const card = document.createElement('div');
       card.className = 'member-card';
-      const avatarContent = m.img
-        ? `<img src="${m.img}" alt="${m.name}" width="100" height="100" loading="lazy">`
-        : m.initials;
+      const avatarContent = m.initials;
       card.innerHTML = `
         <div class="member-avatar">${avatarContent}</div>
         <div class="member-name">${m.name}</div>
