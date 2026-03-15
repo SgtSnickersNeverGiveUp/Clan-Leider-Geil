@@ -211,9 +211,16 @@
       font-weight: 700;
       color: #ff0000;
       border: 2px solid rgba(255, 0, 0, 0.3);
+      overflow: hidden;
       transition: border-color 0.3s ease;
     }
     .member-card:hover .member-avatar { border-color: #ff0000; }
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
     .member-name {
       font-weight: 600;
       font-size: 0.95rem;
@@ -550,23 +557,19 @@
 
     /* --- Member data --- */
     const members = [
-      { name: 'SgtSnickers', role: 'Clan Leader', initials: 'SS' },
-      { name: 'NightWolf', role: 'Co-Leader', initials: 'NW' },
-      { name: 'PhantomBlade', role: 'Raider', initials: 'PB' },
-      { name: 'CyberViper', role: 'Raider', initials: 'CV' },
-      { name: 'ShadowFox', role: 'Streamer', initials: 'SF' },
-      { name: 'IronStrike', role: 'Raider', initials: 'IS' },
-      { name: 'BlitzKrieg', role: 'Raider', initials: 'BK' },
-      { name: 'StormRider', role: 'Member', initials: 'SR' },
-      { name: 'DarkReaper', role: 'Member', initials: 'DR' },
-      { name: 'AceHunter', role: 'Member', initials: 'AH' },
+      { name: 'Sgt.Snickers', role: 'Crew', img: 'static/img/members/Sgt.Snickers.jpg', initials: 'SS' },
+      { name: 'sHaDoW', role: 'Crew', img: 'static/img/members/sHaDoW.jpg', initials: 'SH' },
+      { name: 'M4st_h4v3', role: 'Crew', img: 'static/img/members/M4st_h4v3.jpg', initials: 'MH' },
+      { name: 'Sockenkuchen', role: 'Crew', img: 'static/img/members/Sockenkuchen.jpg', initials: 'SO' },
     ];
 
     const sliderTrack = document.getElementById('sliderTrack');
     members.forEach(m => {
       const card = document.createElement('div');
       card.className = 'member-card';
-      const avatarContent = m.initials;
+      const avatarContent = m.img
+        ? `<img src="${m.img}" alt="${m.name}" loading="lazy">`
+        : m.initials;
       card.innerHTML = `
         <div class="member-avatar">${avatarContent}</div>
         <div class="member-name">${m.name}</div>
